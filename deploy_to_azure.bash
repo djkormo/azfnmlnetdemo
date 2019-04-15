@@ -1,3 +1,5 @@
+# based on https://markheath.net/post/deploying-azure-functions-with-azure-cli
+# based on http://luisquintanilla.me/2018/08/21/serverless-machine-learning-mlnet-azure-functions/
 
 RND=$RANDOM
 
@@ -31,7 +33,7 @@ az storage blob list --container-name models --account-name $AZURE_STORAGEACC  -
 #  consumption plan for function 
 
 az functionapp create --resource-group $AZURE_GROUP --consumption-plan-location $AZURE_LOCATION \
---name $AZURE_PLAN --storage-account  $AZURE_STORAGEACC #--runtime <language> 
+--name $AZURE_PLAN --storage-account  $AZURE_STORAGEACC --runtime dotnet 
 
 #az functionapp plan create -g $AZURE_GROUP -n $AZURE_PLAN --sku F1
 
