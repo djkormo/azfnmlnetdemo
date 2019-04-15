@@ -30,9 +30,12 @@ az storage blob list --container-name models --account-name $AZURE_STORAGEACC  -
 
 #  consumption plan for function 
 
-az functionapp plan create -g $AZURE_GROUP -n $AZURE_PLAN --sku F1
+az functionapp create --resource-group $AZURE_GROUP --consumption-plan-location $AZURE_LOCATION \
+--name $AZURE_PLAN --storage-account  $AZURE_STORAGEACC #--runtime <language> 
+
+#az functionapp plan create -g $AZURE_GROUP -n $AZURE_PLAN --sku F1
 
 #  function app 
-az functionapp create -g $AZURE_GROUP  -p $AZURE_PLAN -n $AZURE_FUN_APP -s $AZURE_STORAGEACC
+#az functionapp create -g $AZURE_GROUP  -p $AZURE_PLAN -n $AZURE_FUN_APP -s $AZURE_STORAGEACC
 
 
