@@ -1,5 +1,6 @@
 # based on https://markheath.net/post/deploying-azure-functions-with-azure-cli
 # based on http://luisquintanilla.me/2018/08/21/serverless-machine-learning-mlnet-azure-functions/
+# based on https://azurecitadel.com/prereqs/cli/cli-4-bash/
 
 RND=$RANDOM
 
@@ -7,7 +8,7 @@ AZURE_GROUP=rg-ml-fun
 AZURE_LOCATION=westeurope
 AZURE_STORAGEACC=mymlserverless$RND
 AZURE_PLAN=MyPlan$RND
-AZURE_FUN_APP=MyUniqueAppName$RND
+AZURE_FUN_APP=mymlfunc$RND
 az configure --defaults group=$AZURE_GROUP
 az configure --defaults location=$AZURE_LOCATION
 
@@ -33,7 +34,8 @@ az storage blob list --container-name models --account-name $AZURE_STORAGEACC  -
 #  consumption plan for function 
 
 az functionapp create --resource-group $AZURE_GROUP --consumption-plan-location $AZURE_LOCATION \
---name $AZURE_PLAN --storage-account  $AZURE_STORAGEACC --runtime dotnet 
+--name $AZURE_FUN_APP --storage-account  $AZURE_STORAGEACC --runtime dotnet \
+--use-32bit-worker-process =false
 
 #az functionapp plan create -g $AZURE_GROUP -n $AZURE_PLAN --sku F1
 
