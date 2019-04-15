@@ -330,5 +330,5 @@ ASALocalRun/
 .mfractor/
 
 # Project Specifics
-**/data/* 
+#**/data/* 
 **/model.zip

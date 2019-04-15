@@ -5,8 +5,14 @@ This application showcases how to build a classification model with ML.NET and d
 ## Build Model
 
 ```bash
-git clone https://github.com/lqdev/azfnmlnetdemo.git
+git clone https://github.com/djkormo/azfnmlnetdemo.git
 cd model
+mkdir model
+cd model
+mkdir data
+curl -o data/iris.txt https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
+
+
 dotnet restore
 dotnet run
 ```
