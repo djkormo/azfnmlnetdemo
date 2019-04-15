@@ -20,7 +20,7 @@ az group create --name $AZURE_GROUP --location $AZURE_LOCATION
 
 az storage account create -n $AZURE_STORAGEACC -g $AZURE_GROUP -l $AZURE_LOCATION  --sku Standard_LRS
 
-az storage account keys list --account-name $AZURE_STORAGEACC --resource-group $AZURE_GROUP
+az storage account keys list --account-name $AZURE_STORAGEACC --resource-group $AZURE_GROUP -o table 
 
 AZURE_STORAGEACC_KEY=$(az storage account keys list --account-name $AZURE_STORAGEACC --resource-group $AZURE_GROUP --query [0].value --output tsv)
 
@@ -35,7 +35,7 @@ az storage blob list --container-name models --account-name $AZURE_STORAGEACC  -
 
 az functionapp create --resource-group $AZURE_GROUP --consumption-plan-location $AZURE_LOCATION \
 --name $AZURE_FUN_APP --storage-account  $AZURE_STORAGEACC --runtime dotnet \
---use-32bit-worker-process =false
+--use-32bit-worker-process false
 
 #az functionapp plan create -g $AZURE_GROUP -n $AZURE_PLAN --sku F1
 
