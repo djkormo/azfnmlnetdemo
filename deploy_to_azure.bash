@@ -27,7 +27,7 @@ AZURE_STORAGEACC_KEY=$(az storage account keys list --account-name $AZURE_STORAG
 
 az storage container create --name models --account-key $AZURE_STORAGEACC_KEY --account-name $AZURE_STORAGEACC --fail-on-exist
 
-az storage blob upload --container-name models --account-name $AZURE_STORAGEACC --file model/model.zip --name model.zip
+az storage blob upload --container-name models --account-name $AZURE_STORAGEACC --file model/model/model.zip --name model.zip
 
 az storage blob list --container-name models --account-name $AZURE_STORAGEACC  --output table
 
