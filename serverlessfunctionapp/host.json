@@ -1,2 +1,8 @@
 {
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=mymlserverless29147;AccountKey=5utxDiFDpRRb6qXl0uax81QmzzQErBKtTgYAKKXkjcNfpDYofOraQV6RVT+Xo3EqMOkJrOGXgbGw3xam6fpn9Q==",
+    "AzureWebJobsDashboard": "",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+  }
 }
