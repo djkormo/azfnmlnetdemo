@@ -35,7 +35,11 @@ az storage blob list --container-name models --account-name $AZURE_STORAGEACC  -
 
 az functionapp create --resource-group $AZURE_GROUP --consumption-plan-location $AZURE_LOCATION \
 --name $AZURE_FUN_APP --storage-account  $AZURE_STORAGEACC \
---runtime dotnet  --settings FUNCTIONS_EXTENSION_VERSION=beta
+--runtime dotnet 
+
+
+az functionapp config appsettings set --name $AZURE_FUN_APP --resource-group $AZURE_GROUP --settings FUNCTIONS_EXTENSION_VERSION=beta
+
 #--use-32bit-worker-process false
 
 #az functionapp plan create -g $AZURE_GROUP -n $AZURE_PLAN --sku F1
